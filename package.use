@@ -1,0 +1,22 @@
+dev-libs/boost			doc
+sys-devel/gcc			doc
+dev-libs/libxml2		python
+sys-fs/udev			gudev hwdb
+media-libs/mesa			gallium
+gnome-base/librsvg		introspection
+media-libs/libcanberra		alsa
+sys-apps/pacman			curl
+dev-util/nvidia-cuda-toolkit	doc debugger profiler opencl
+app-editors/emacs-vcs		toolkit-scroll-bars
+media-plugins/alsa-plugins	pulseaudio
+app-arch/file-roller		nautilus
+app-office/texmacs		qt4 svg imlib
+net-libs/libssh			static-libs
+
+dev-python/PyQt4		webkit svg declarative sql
+sys-libs/zlib			minizip
+app-text/poppler		qt4
+x11-libs/qt-gui			mng
+dev-lang/php			mysql apache2
+media-plugins/gst-plugins-meta	ogg vorbis
+www-apps/wordpress		vhost
