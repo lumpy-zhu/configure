@@ -1,0 +1,37 @@
+
+top = '.'
+out = '.build'
+
+cuda_home       ='/opt/cuda'
+cuda_include    = cuda_home+'/include'
+
+def options(opt):
+    opt.load('compiler_cxx')
+
+def configure(conf):
+    conf.load('compiler_cxx')
+
+def build(bld):
+    d_lib = bld.path.find_dir('lib')
+    d_inc = bld.path.find_dir('sparrow')
+
+    sparrow = bld.shlib(
+        target          = 'sparrow',
+        vnum            = '4.0',
+
+        source          = d_lib.ant_glob('**/*.c[cu]'),
+        includes        = ['.', cuda_include],
+        
+        cxxflags        = ['-Wall', '--std=gnu++0x', '-g'],
+        defines         = ['__SPARROW_SYS__']
+        )
+    
+    bld.install_files('${PREFIX}/include/sparrow', d_inc.ant_glob('**/**.h'),
+                      cwd=d_inc, relative_trick=True)
+
+def dist(ctx):
+    ctx.base_name       = 'sparrow_4.0_src'
+    ctx.files           = ctx.path.ant_glob(['**'], 
+                                            excl=['**/.*', '**/*.o', '**/*~', '.build/*'])
+
+

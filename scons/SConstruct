@@ -1,0 +1,15 @@
+
+env = Environment(
+    CCFLAGS     = ['-g'],
+    NVCCFLAGS   = ['-arch=sm_20', '-Xcompiler'],
+    CPPPATH     = ['..'],
+    LIBPATH     = ['../.build'],
+    LIBS        = ['sparrow', 'cublas', 'cufft']
+    )
+
+env.Tool('cuda')
+
+for src in Glob('*.c[cu]'):
+    env.Program(src)
+
+
